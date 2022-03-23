@@ -1,6 +1,6 @@
 using System;
 
-namespace HTML_Tag_Tracker
+namespace XOR
 {
     class Program
     {
