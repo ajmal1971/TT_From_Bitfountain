@@ -1,0 +1,9 @@
+What is shared memory and when will you use it?
+-----------------------------------------------
+  Shared Memory is the memory which is shared between multiple program to communicate between them and to avoid redundant copy of memory for same task.
+  
+Polymorphism and When it should be used
+---------------------------------------
+  Polymorphism means versatility of a program/block of code/function. That means program/block of code/function can be used for differnent purpose then
+  it calls Polymorphism. When we want to perform same operation with diffenrt input parameters, then it can be achieved with the concept of Polymorphism.
+  For example in C#, consider the "WriteLine" function. Depending on the number of Parameters and type of Parameters it serves different purposes.
