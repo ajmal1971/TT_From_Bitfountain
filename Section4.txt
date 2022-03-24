@@ -7,3 +7,16 @@ Polymorphism and When it should be used
   Polymorphism means versatility of a program/block of code/function. That means program/block of code/function can be used for differnent purpose then
   it calls Polymorphism. When we want to perform same operation with diffenrt input parameters, then it can be achieved with the concept of Polymorphism.
   For example in C#, consider the "WriteLine" function. Depending on the number of Parameters and type of Parameters it serves different purposes.
+  
+Interface Implementation And Benefits
+-------------------------------------
+  Whenever I declare a class, I also declare an interface and define all the public methodes of the class here. First benefit is, whenever I want the short overview of     the class functionlalities, I can get it from interface rather scrolling up and down of the class. As I define all the public methodes in interface, I had to implement   them in class, In this way I can Implement the method I missed. Whenever I want to execute a public methode of a class from another calss, then I can call it through     the interface, in this way one can not reach to the code directly.
+  
+Aspects of Object Orientated Development
+----------------------------------------
+  -We can store all the frequently used codes in a class for resue and use them thow inheritance
+  -With the moduler structre concept, we can manage, implement and test our codes more efficiently
+  -Multiple inheritance is a gift in OOP.
+  -The data-centered design approach enables us to capture more details of model in an implementable form
+  -Object-oriented programs typically involve more lines of code than procedural programs
+  -Encapsulation is another valuable aspect of OOP. It proveds the facility of preventing codes to be easily availeble to all.
