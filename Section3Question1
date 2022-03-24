@@ -1,0 +1,58 @@
+//Function That Iterates Through A Directory
+
+using System;
+using System.IO;
+
+namespace ReadDir
+{
+    class Program
+    {
+        static System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
+
+        static void Main(string[] args)
+        {
+            Console.Write("Enter A Directory Path: ");
+            string drive = Console.ReadLine();
+
+            Console.WriteLine("\n");
+            DirectoryInfo rootDir = new DirectoryInfo(drive);
+            ReadAllFilesName(rootDir);
+
+            Console.WriteLine("\n=============================== FINISHED READING ALL FILES ===============================");
+            Console.ReadKey();
+        }
+
+        static void ReadAllFilesName(DirectoryInfo root)
+        {
+            FileInfo[] files = null;
+            DirectoryInfo[] subDirs = null;
+
+            try
+            {
+                files = root.GetFiles(".");
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                log.Add(e.Message);
+            }
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            if (files != null)
+            {
+                foreach (FileInfo fi in files)
+                {
+                    Console.WriteLine(fi.FullName);
+                }
+                subDirs = root.GetDirectories();
+
+                foreach (DirectoryInfo dirInfo in subDirs)
+                {
+                    ReadAllFilesName(dirInfo);
+                }
+            }
+        }
+    }
+}
