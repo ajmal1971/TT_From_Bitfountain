@@ -4,71 +4,67 @@ namespace QuickSort
 {
     class Program
     {
-        static public void QuickSort(int[] items, int left, int right)
+        static public int Partition(int[] arr, int left, int right)
+        {
+            int pivot;
+            pivot = arr[left];
+            while (true)
+            {
+                while (arr[left] < pivot)
+                {
+                    left++;
+                }
+                while (arr[right] > pivot)
+                {
+                    right--;
+                }
+                if (left < right)
+                {
+                    int temp = arr[right];
+                    arr[right] = arr[left];
+                    arr[left] = temp;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+        static public void QuickSort(int[] arr, int left, int right)
         {
             int pivot;
             if (left < right)
             {
-                pivot = items[left];
-                while (true)
-                {
-                    while (items[left] < pivot)
-                    {
-                        left++;
-                    }
-                    while (items[right] > pivot)
-                    {
-                        right--;
-                    }
-                    if (left < right)
-                    {
-                        int temp = items[right];
-                        items[right] = items[left];
-                        items[left] = temp;
-                    }
-                    else
-                    {
-                        pivot =  right;
-                        break;
-                    }
-                }
-
+                pivot = Partition(arr, left, right);
                 if (pivot > 1)
                 {
-                    QuickSort(items, left, pivot - 1);
+                    QuickSort(arr, left, pivot - 1);
                 }
                 if (pivot + 1 < right)
                 {
-                    QuickSort(items, pivot + 1, right);
+                    QuickSort(arr, pivot + 1, right);
                 }
             }
         }
 
         static void Main(string[] args)
         {
-            Console.Write("Enter Number Of Items: ");
+            Console.WriteLine("Enter Number Of Items: ");
             int noi = int.Parse(Console.ReadLine());
 
             int[] items = new int[noi];
-            Console.Write("Enter  Items: ");
             for (int index = 0; index < noi; index++)
-            {
                 items[index] = int.Parse(Console.ReadLine());
-            }
 
-            Console.Write("Items Before Sort: ");
+            Console.Write("\nItems Before Sort: ");
             for (int index = 0; index < noi; index++)
-            {
                 Console.Write(items[index] + " ");
-            }
 
             QuickSort(items, 0, noi-1);
 
-            Console.Write("\nSorted Array is: ");
+            Console.Write("\n\nItems Before Sort: ");
             for (int index = 0; index < noi; index++)
-            {
                 Console.Write(items[index] + " ");
-            }
 
             Console.Read();
         }
